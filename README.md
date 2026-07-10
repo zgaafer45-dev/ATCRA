@@ -19,35 +19,44 @@ Unlike conventional robotic workstations that require multiple dedicated manipul
 The project integrates robotics, embedded systems, motion planning, computer vision, and custom hardware into one complete autonomous solution.
 
 ---
+## 🎥 Project Demonstration
+
+📹 **Watch the full demonstration here:**
+
+https://drive.google.com/file/d/1jRISlPLguDfTuXDAfmcVbNdn96eW5K7E/view?usp=sharing
+
+
 ## Project Gallery
 
-<p align="center">
-  <img src="media/WhatsApp Image 2026-07-10 at 10.36.20 AM.jpeg" width="45%">
-  <img src="media/1782988344132.jpg" width="45%">
-</p>
+   <p align="center">
+   <img src="media/WhatsApp Image 2026-07-10 at 10.36.20 AM.jpeg" width="45%">
+   <img src="media/1782988344132.jpg" width="45%">
+   </p>
 
-<p align="center">
-  <img src="media/1782988344101.jpg" width="45%">
-  <img src="media/1782988344511.jpg" width="45%">
-</p>
+   <p align="center">
+   <img src="media/1782988344101.jpg" width="45%">
+   <img src="media/1782988344511.jpg" width="45%">
+   </p>
 ## Features
 
 - 🔄 Automatic tool-changing mechanism
 - 🤖 ROS 2 Humble software architecture
-- 🎯 Motion planning using MoveIt 2
-   <p align="center">
-  <img src="media\Screenshot from 2026-01-16 14-15-43.png" width="45%">
-</p>
+- 💻 Simulation and real hardware support
 - ⚙️ Custom hardware interface with `ros2_control`
 - 👁️ Vision-guided object detection
 - 📍 Vision-based coordinate extraction
 - 🦾 Autonomous pick-and-place
+
+- 🎯 Motion planning using MoveIt 2
+   <p align="center">
+  <img src="media\Screenshot from 2026-01-16 14-15-43.png" width="45%">
+   </p>
+   
 - 🛠️ Custom robotic arm design
-<p align="center">
+   <p align="center">
   <img src="media\Screenshot from 2026-01-16 13-20-41.png" width="45%">
   
-</p>
-- 💻 Simulation and real hardware support
+   </p>
 
 ---
 
