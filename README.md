@@ -23,7 +23,7 @@ The project integrates robotics, embedded systems, motion planning, computer vis
 
 📹 **Watch the full demonstration here:**
 
-https://docs.google.com/videos/d/1ojxeTPIITdiL9cJ0IEICjh_4G1G_0gVnOIyoCvffmFU/edit?usp=sharing
+https://drive.google.com/file/d/1bX4uoeqlEuVNF9uA9qmIsi9VNMYiQTAO/view?usp=sharing
 
 
 ## Project Gallery
