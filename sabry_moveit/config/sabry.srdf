@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="sabry">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="arm">
+        <joint name="virtual_joint"/>
+        <joint name="waist_joint"/>
+        <joint name="upperarm_joint"/>
+        <joint name="lowerarm_joint"/>
+        <joint name="wrist_pitch_joint"/>
+        <joint name="wrist_yaw_joint"/>
+        <!-- <joint name="tool_mount"/> -->
+    </group>
+    
+    <group name="gripper">
+        <joint name="left_tool_joint"/>
+    </group>
+
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="intial_pose" group="arm">
+        <joint name="lowerarm_joint" value="0"/>
+        <joint name="upperarm_joint" value="0"/>
+        <joint name="waist_joint" value="0"/>
+        <joint name="wrist_pitch_joint" value="0"/>
+        <joint name="wrist_yaw_joint" value="0"/>
+    </group_state>
+    <!-- GRIPPER DOCK STATES -->
+    <group_state name="gripper_dock" group="arm">
+        <joint name="waist_joint"       value="-1.978505240060772"/>
+        <joint name="upperarm_joint"    value="0.6670648401122328"/>
+        <joint name="lowerarm_joint"    value="-0.6627015169822474"/>
+        <joint name="wrist_pitch_joint" value="0.06925757360122084"/>
+        <joint name="wrist_yaw_joint"   value="0.31375565796945587"/>
+    </group_state>
+
+    <group_state name="gripper_approach" group="arm">
+        <joint name="waist_joint"       value="-1.978679772985972"/>
+        <joint name="upperarm_joint"    value="0.6763150851478027"/>
+        <joint name="lowerarm_joint"    value="-0.8834856673595297"/>
+        <joint name="wrist_pitch_joint" value="-0.13944308058808821"/>
+        <joint name="wrist_yaw_joint"   value="0.3154355373745003"/>
+    </group_state>
+
+    <group_state name="gripper_lift" group="arm">
+        <joint name="waist_joint"       value="-2.0792772479717234"/>
+        <joint name="upperarm_joint"    value="0.24504089170762924"/>
+        <joint name="lowerarm_joint"    value="-0.02808594619458445"/>
+        <joint name="wrist_pitch_joint" value="0.2816247192472164"/>
+        <joint name="wrist_yaw_joint"   value="0.41435716933123884"/>
+    </group_state>
+     
+    <group_state name="screwdriver_dock" group="arm">
+        <joint name="waist_joint"       value="-1.6460200175558526"/>
+        <joint name="upperarm_joint"    value=" 0.5290092962794813"/>
+        <joint name="lowerarm_joint"    value="-0.39828413530510587"/>
+        <joint name="wrist_pitch_joint" value="0.14298609896963557"/>
+        <joint name="wrist_yaw_joint"   value="-0.00022907446432425364"/>
+    </group_state>
+
+    <group_state name="screwdriver_lift" group="arm">
+        <joint name="waist_joint"       value="-1.6460200175558526"/>
+        <joint name="upperarm_joint"    value="-0.16514226214570082"/>
+        <joint name="lowerarm_joint"    value="0.4302884652421606"/>
+        <joint name="wrist_pitch_joint" value="0.2773936683480661"/>
+        <joint name="wrist_yaw_joint"   value="-0.00022907446432425364"/>
+    </group_state>
+
+    <group_state name="screwdriver_approach" group="arm">
+        <joint name="waist_joint"       value="-1.64602001755585267"/>
+        <joint name="upperarm_joint"    value="0.525475318388725"/>
+        <joint name="lowerarm_joint"    value="-0.6572769461936134"/>
+        <joint name="wrist_pitch_joint" value="-0.11946802663916199"/>
+        <joint name="wrist_yaw_joint"   value="-0.00022907446432425364"/>
+    </group_state>
+
+    <group_state name="camera_dock" group="arm">
+        <joint name="waist_joint"       value="-1.2777281295314393"/>
+        <joint name="upperarm_joint"    value="0.6280531557329712"/>
+        <joint name="lowerarm_joint"    value="-0.4850790537077438"/>
+        <joint name="wrist_pitch_joint" value="0.14312729548081135"/>
+        <joint name="wrist_yaw_joint"   value="1.2777839001441273"/>
+    </group_state>
+
+    <group_state name="camera_lift" group="arm">
+        <joint name="waist_joint"       value="-1.1015969424780463"/>
+        <joint name="upperarm_joint"    value="0.06421635532830548"/>
+        <joint name="lowerarm_joint"    value="0.2734665962382407"/>
+        <joint name="wrist_pitch_joint" value="0.3378270075511886"/>
+        <joint name="wrist_yaw_joint"   value="1.101730894814258"/>
+    </group_state>
+
+    <group_state name="camera_approach" group="arm">
+        <joint name="waist_joint"       value="-1.2776741588914893"/>
+        <joint name="upperarm_joint"    value="0.6377796782586148"/>
+        <joint name="lowerarm_joint"    value="-0.8290646213875537"/>
+        <joint name="wrist_pitch_joint" value="-0.19101631527870563"/>
+        <joint name="wrist_yaw_joint"   value="1.2776537130087449"/>
+    </group_state>
+
+    <end_effector name="tool_tcp" parent_link="tool_mount_link" group="eef" parent_group="arm"/>
+
+    <group_state name="open" group="gripper">
+        <joint name="left_tool_joint" value="0"/>
+    </group_state>
+
+    <group_state name="closed" group="gripper">
+        <joint name="left_tool_joint" value="1.57"/>
+    </group_state>
+    <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
+    <virtual_joint name="virtual_joint" type="fixed" parent_frame="world" child_link="base_link"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <!--DISABLE COLLISIONS-->
+    <disable_collisions link1="base_link" link2="left_tool" reason="Never"/>
+    <disable_collisions link1="base_link" link2="mid_tool" reason="Never"/>
+    <disable_collisions link1="base_link" link2="rack_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="right_tool" reason="Never"/>
+    <disable_collisions link1="base_link" link2="waist_Link" reason="Adjacent"/>
+    <disable_collisions link1="left_tool" link2="mid_tool" reason="Never"/>
+    <disable_collisions link1="left_tool" link2="rack_link" reason="Adjacent"/>
+    <disable_collisions link1="left_tool" link2="right_tool" reason="Never"/>
+    <disable_collisions link1="left_tool" link2="upperarm_Link" reason="Never"/>
+    <disable_collisions link1="left_tool" link2="waist_Link" reason="Never"/>
+    <disable_collisions link1="lowerarm_Link" link2="upperarm_Link" reason="Adjacent"/>
+    <disable_collisions link1="lowerarm_Link" link2="wrist_pitch_Link" reason="Adjacent"/>
+    <disable_collisions link1="mid_tool" link2="rack_link" reason="Adjacent"/>
+    <disable_collisions link1="mid_tool" link2="right_tool" reason="Never"/>
+    <disable_collisions link1="mid_tool" link2="upperarm_Link" reason="Never"/>
+    <disable_collisions link1="mid_tool" link2="waist_Link" reason="Never"/>
+    <disable_collisions link1="rack_link" link2="right_tool" reason="Adjacent"/>
+    <disable_collisions link1="rack_link" link2="upperarm_Link" reason="Never"/>
+    <disable_collisions link1="rack_link" link2="waist_Link" reason="Never"/>
+    <disable_collisions link1="right_tool" link2="upperarm_Link" reason="Never"/>
+    <disable_collisions link1="right_tool" link2="waist_Link" reason="Never"/>
+    <disable_collisions link1="upperarm_Link" link2="waist_Link" reason="Adjacent"/>
+    <disable_collisions link1="upperarm_Link" link2="wrist_pitch_Link" reason="Never"/>
+    <disable_collisions link1="wrist_pitch_Link" link2="wrist_yaw_Link" reason="Adjacent"/>
+    <disable_collisions link1="lowerarm_Link" link2="camera_link" reason="Adjacent"/>
+
+</robot>

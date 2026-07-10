@@ -1,0 +1,59 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    drill_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - waist_joint
+      - upperarm_joint
+      - lowerarm_joint
+      - wrist_pitch_joint
+      - wrist_yaw_joint
+
+    # gains:
+    #   waist_joint: {p: 100.0, i: 0.0, d: 10.0}
+    #   upperarm_joint: {p: 80.0, i: 0.0, d: 8.0}
+    #   lowerarm_joint: {p: 60.0, i: 0.0, d: 6.0}
+    #   wrist_pitch_joint: {p: 50.0, i: 0.0, d: 5.0}
+    #   wrist_yaw_joint: {p: 40.0, i: 0.0, d: 4.0}
+
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+    allow_nonzero_velocity_at_trajectory_end : true
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - left_tool_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+    allow_nonzero_velocity_at_trajectory_end : true
+
+drill_controller:
+  ros__parameters:
+    joints:
+      - mid_tool_joint
+    interface_name: velocity

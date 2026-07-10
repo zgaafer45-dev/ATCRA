@@ -1,0 +1,15 @@
+planning_pipelines:
+  pipeline_names:
+    - ompl
+    - pilz_industrial_motion_planner
+
+default_planning_pipeline: ompl
+
+ompl:
+  planning_plugin: ompl_interface/OMPLPlanner
+
+  request_adapters: >-
+    default_planning_request_adapters/AddTimeOptimalParameterization
+    default_planning_request_adapters/AddRuckigTrajectorySmoothing
+
+  start_state_max_bounds_error: 0.1

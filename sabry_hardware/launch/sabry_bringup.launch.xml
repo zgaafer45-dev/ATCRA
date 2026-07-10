@@ -1,0 +1,8 @@
+<launch>
+    <!-- <node pkg="publisher" exec="joint_state_to_microros" name="joint_state_to_microros"/> -->
+    <node pkg="sabry_hardware" exec="linear_motor_node.py" name="tool_changer_server"/>
+    <node pkg="sabry_hardware" exec="tool_change_manager.py" name="tool_change_manager"/>
+    <timer period="3.0">
+        <node pkg="sabry_hardware" exec="operation.py" name="operation_manager"/>
+    </timer>
+</launch>

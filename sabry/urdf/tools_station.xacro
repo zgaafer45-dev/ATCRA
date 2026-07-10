@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="tool_dock" params="name x y z">
+    <link name="${name}_dock_base">
+      <visual>
+        <geometry><box size="0.12 0.12 0.04"/></geometry>
+        <material name="">
+        <color rgba="0.4 0.4 0.4 1.0"/></material>
+      </visual>
+      <collision>
+        <geometry><box size="0.13 0.13 0.05"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.005" ixy="0" ixz="0" iyy="0.005" iyz="0" izz="0.005"/>
+      </inertial>
+    </link>
+
+    <joint name="${name}_dock_joint" type="fixed">
+      <parent link="world"/>
+      <child link="${name}_dock_base"/>
+      <origin xyz="${x} ${y} ${z}" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Docking point marker (for alignment) -->
+    <link name="${name}_docking_point">
+      <visual>
+        <geometry><sphere radius="0.008"/></geometry>
+        <material name=""><color rgba="1.0 0.5 0.0 1.0"/></material>
+      </visual>
+    </link>
+
+    <joint name="${name}_docking_joint" type="fixed">
+      <parent link="${name}_dock_base"/>
+      <child link="${name}_docking_point"/>
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Instantiate docks at different positions -->
+  <xacro:tool_dock name="gripper" x="0.2" y="-0.3" z="0.02"/>
+  <xacro:tool_dock name="screwdriver" x="0.2" y="0.0" z="0.02"/>
+  <xacro:tool_dock name="camera" x="0.2" y="0.3" z="0.02"/>
+
+</robot>

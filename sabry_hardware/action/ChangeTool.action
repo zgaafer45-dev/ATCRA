@@ -1,0 +1,11 @@
+# Goal
+string tool_name
+
+---
+# Result
+bool success
+string message
+
+---
+# Feedback
+string current_state

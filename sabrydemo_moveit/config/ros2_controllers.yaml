@@ -1,0 +1,97 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    switch_controller_timeout: 20
+    update_rate: 150  # Hz
+    hardware_plugin: "sabry_hardware/SabrySystem"
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    drill_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - waist_joint
+      - upperarm_joint
+      - lowerarm_joint
+      - wrist_pitch_joint
+      - wrist_yaw_joint
+    command_interfaces:
+      # - position
+      - velocity
+    state_interfaces:
+      - position
+      - velocity
+    # interface_name: velocity
+    state_publish_rate: 50.0
+    action_monitor_rate: 50.0
+
+    allow_partial_joints_goal: false
+    open_loop_control: false                                                                                                                                                 
+    velocity_ff: true                                                                                 
+    constraints:
+      stopped_velocity_tolerance: 0.0
+      goal_time: 0.0                                                              
+      waist_joint:
+        trajectory: 0.2
+        goal: 0.03
+      upperarm_joint:
+        trajectory: 0.2
+        goal: 0.03
+      lowerarm_joint:
+        trajectory: 0.2
+        goal: 0.03
+        max_velocity: 0.1
+      wrist_pitch_joint:
+        trajectory: 0.5
+        goal: 0.03
+        max_velocity: 0.5
+      wrist_yaw_joint:
+        trajectory: 0.5
+        goal: 0.03
+        max_velocity: 0.5
+
+    # velocity_limits:
+    #   waist_joint: 0.5
+    #   upperarm_joint: 0.5
+    #   lowerarm_joint: 0.5
+    #   wrist_pitch_joint: 1.0
+    #   wrist_yaw_joint: 1.0
+
+    gains:
+      waist_joint:       {p: 1.0, d: 1.0, i: 0.1}
+      upperarm_joint:    {p: 2.0, d: 3.0, i: 0.0}
+      lowerarm_joint:    {p: 1.0, d: 4.0, i: 0.0}
+      wrist_pitch_joint: {p: 2.0, d: 1.0, i: 0.2, angle_wraparound: true}
+      wrist_yaw_joint:   {p: 2.0, d: 1.0, i: 0.2, angle_wraparound: true}
+    
+    allow_integration_in_goal_trajectories: true
+    allow_nonzero_velocity_at_trajectory_end : true
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - left_tool_joint
+    command_interfaces:
+      - position
+      
+    state_interfaces:
+      - position
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true
+    allow_nonzero_velocity_at_trajectory_end : true
+
+drill_controller:
+  ros__parameters:
+    joints:
+      - mid_tool_joint
+    interface_name: velocity

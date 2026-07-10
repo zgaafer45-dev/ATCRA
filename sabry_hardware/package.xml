@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>sabry_hardware</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="vboxuser@todo.todo">vboxuser</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+<buildtool_depend>ament_cmake_python</buildtool_depend>
+<build_depend>rosidl_default_generators</build_depend>
+<build_depend>rclcpp</build_depend>
+<build_depend>hardware_interface</build_depend>
+<build_depend>pluginlib</build_depend>
+<build_depend>controller_interface</build_depend>
+<exec_depend>rosidl_default_runtime</exec_depend>
+
+<exec_depend>moveit_msgs</exec_depend>
+<depend>rclpy</depend>
+<exec_depend>geometry_msgs</exec_depend>
+<exec_depend>shape_msgs</exec_depend>
+<exec_depend>trajectory_msgs</exec_depend>
+<exec_depend>ros_gz_interfaces</exec_depend>
+
+<exec_depend>publisher</exec_depend> 
+<exec_depend>tf2_geometry_msgs</exec_depend>
+<exec_depend>tf2_ros</exec_depend>
+<exec_depend>asyncio</exec_depend>
+<exec_depend>trimesh</exec_depend>
+<exec_depend>control_msgs</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+<exec_depend>cv_bridge</exec_depend>
+<exec_depend>cv2</exec_depend>
+
+
+<exec_depend>rclcpp</exec_depend>
+<exec_depend>rclcpp_lifecycle</exec_depend>
+<exec_depend>hardware_interface</exec_depend>
+<exec_depend>pluginlib</exec_depend>
+<exec_depend>controller_interface</exec_depend>
+
+
+
+<exec_depend>sensor_msgs</exec_depend>
+<exec_depend>functools</exec_depend>
+<depend>action_msgs</depend>
+<exec_depend>moveit_commander</exec_depend>
+<depend>example_interfaces</depend>
+<depend>libserial-dev</depend>
+<!-- <depend>sabry_hardware</depend> -->
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<member_of_group>rosidl_interface_packages</member_of_group> 
+<export>
+  <build_type>ament_cmake</build_type>
+  <hardware_interface plugin="${prefix}/sabry_hardware.xml"/>
+
+</export>
+</package>

@@ -1,0 +1,13 @@
+<library path="sabry_hardware_system">
+  <class
+    name="sabry_hardware/SabrySystem"
+    type="sabry_hardware::SabrySystem"
+    base_class_type="hardware_interface::SystemInterface">
+  </class>
+
+  <class
+    name="gripper_hardware/GripperSystem"
+    type="gripper_hardware::GripperSystem"
+    base_class_type="hardware_interface::SystemInterface">
+  </class>
+</library>

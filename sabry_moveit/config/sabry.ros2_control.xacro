@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="sabry_ros2_control" params="name initial_positions_file" >
+        <xacro:property name="initial_positions" value="${load_yaml(initial_positions_file)['initial_positions']}"/>
+
+        <ros2_control name="${name}" type="system">
+            <hardware>
+                <!-- By default, set up controllers for simulation. This won't work on real hardware  -->
+                <plugin>mock_components/GenericSystem</plugin>
+            </hardware> 
+            <joint name="waist_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['waist_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="upperarm_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['upperarm_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="lowerarm_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['lowerarm_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="wrist_pitch_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['wrist_pitch_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="wrist_yaw_joint">
+                <command_interface name="position"/>
+                <state_interface name="position">
+                  <param name="initial_value">${initial_positions['wrist_yaw_joint']}</param>
+                </state_interface>
+            </joint>
+            <joint name="mid_tool_joint">
+                <command_interface name="velocity"/>
+                <state_interface name="position"/>
+                <state_interface name="velocity">
+                    <param name="initial_value">1.57</param>
+                </state_interface>
+                <!-- <param name="initial_value">${initial_positions['mid_tool_joint']}</param> -->
+            </joint>
+
+        </ros2_control>
+        <ros2_control name="gripper" type="system">
+            <hardware>
+                <!-- By default, set up controllers for simulation. This won't work on real hardware  -->
+                <plugin>mock_components/GenericSystem</plugin>
+                <!-- <plugin>gripper_hardware/GripperSystem</plugin> -->
+            </hardware> 
+
+            <joint name="left_tool_joint">
+                <command_interface name="position"/>
+                <state_interface name="position"/>
+                <param name="initial_value">${initial_positions['left_tool_joint']}</param>
+            </joint>
+        </ros2_control>
+
+        
+    </xacro:macro>
+</robot>

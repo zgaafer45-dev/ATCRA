@@ -1,0 +1,10 @@
+# Default initial positions for sabry's ros2_control fake system
+
+initial_positions:
+  lowerarm_joint: 0
+  upperarm_joint: 0
+  waist_joint: 0
+  wrist_pitch_joint: 0
+  wrist_yaw_joint: 0
+  left_tool_joint: 0
+  id_tool_joint: 1.57
