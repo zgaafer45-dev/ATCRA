@@ -35,11 +35,18 @@ The project integrates robotics, embedded systems, motion planning, computer vis
 - 🔄 Automatic tool-changing mechanism
 - 🤖 ROS 2 Humble software architecture
 - 🎯 Motion planning using MoveIt 2
+   <p align="center">
+  <img src="media\Screenshot from 2026-01-16 14-15-43.png" width="45%">
+</p>
 - ⚙️ Custom hardware interface with `ros2_control`
 - 👁️ Vision-guided object detection
 - 📍 Vision-based coordinate extraction
 - 🦾 Autonomous pick-and-place
 - 🛠️ Custom robotic arm design
+<p align="center">
+  <img src="media\Screenshot from 2026-01-16 13-20-41.png" width="45%">
+  
+</p>
 - 💻 Simulation and real hardware support
 
 ---
