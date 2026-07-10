@@ -23,7 +23,7 @@ The project integrates robotics, embedded systems, motion planning, computer vis
 
 📹 **Watch the full demonstration here:**
 
-https://drive.google.com/file/d/1jRISlPLguDfTuXDAfmcVbNdn96eW5K7E/view?usp=sharing
+https://docs.google.com/videos/d/1ojxeTPIITdiL9cJ0IEICjh_4G1G_0gVnOIyoCvffmFU/edit?usp=sharing
 
 
 ## Project Gallery
@@ -51,7 +51,7 @@ https://drive.google.com/file/d/1jRISlPLguDfTuXDAfmcVbNdn96eW5K7E/view?usp=shari
    <p align="center">
   <img src="media\Screenshot from 2026-01-16 14-15-43.png" width="45%">
    </p>
-   
+
 - 🛠️ Custom robotic arm design
    <p align="center">
   <img src="media\Screenshot from 2026-01-16 13-20-41.png" width="45%">
