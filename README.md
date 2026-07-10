@@ -19,7 +19,17 @@ Unlike conventional robotic workstations that require multiple dedicated manipul
 The project integrates robotics, embedded systems, motion planning, computer vision, and custom hardware into one complete autonomous solution.
 
 ---
+## Project Gallery
 
+<p align="center">
+  <img src="media/WhatsApp Image 2026-07-10 at 10.36.20 AM.jpeg" width="45%">
+  <img src="media/1782988344132.jpg" width="45%">
+</p>
+
+<p align="center">
+  <img src="media/1782988344101.jpg" width="45%">
+  <img src="media/1782988344511.jpg" width="45%">
+</p>
 ## Features
 
 - 🔄 Automatic tool-changing mechanism
